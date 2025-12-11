@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Productos</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">URBAN<span style="color:#e63946">STYLE</span></div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor seccion">
+        <h1>Nuestros Productos</h1>
+        
+        <div style="margin-bottom: 20px;">
+            <button class="btn" onclick="filtrar('all')">Todos</button>
+            <button class="btn" onclick="filtrar('men\'s clothing')">Hombres</button>
+            <button class="btn" onclick="filtrar('women\'s clothing')">Mujeres</button>
+        </div>
+
+        <div id="lista-productos" class="galeria">
+            <p>Cargando catálogo...</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 UrbanStyle - Sitio Web Escolar</p>
+    </footer>
+
+    <script src="assets/js/products.js"></script>
+
+</body>
+</html>
