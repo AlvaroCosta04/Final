@@ -56,6 +56,12 @@ header {
     color: #e63946; /* Color rojo al pasar el mouse */
 }
 
+.hamburguesa {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
 /* --- 4. PORTADA (Hero) --- */
 .hero {
     height: 300px;
@@ -137,6 +143,79 @@ footer {
 
 /* --- 8. MÓVIL --- */
 @media (max-width: 600px) {
-    .menu { display: none; } /* Ocultar menú en celular por ahora */
+    .menu { display: none; } /* Oculta los enlaces en el cel */
+    .hamburguesa { display: block; } /* Muestra el icono SOLO en el cel */
     .hero h1 { font-size: 2rem; }
+}
+
+/* --- ESTILOS DEL FORMULARIO (Agregar al final) --- */
+
+.contenedor-form {
+    max-width: 500px; /* Que no sea muy ancho para leerse bien */
+    margin: 0 auto;   /* Centrado */
+    text-align: left; /* Las etiquetas alineadas a la izquierda */
+}
+
+.campo {
+    margin-bottom: 20px; /* Espacio entre preguntas */
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Estilo de los inputs y el area de texto */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit; /* Usa la misma letra que la web */
+}
+
+input:focus, textarea:focus {
+    border-color: #e63946; /* Se pinta rojo al escribir [cite: 17] */
+    outline: none;
+}
+
+.detalle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Dos columnas en PC, una en móvil */
+    gap: 40px;
+    align-items: center;
+    text-align: left; /* Alineamos texto a la izquierda */
+}
+
+.detalle-imagen img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.detalle-info h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.categoria {
+    color: #888;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.descripcion {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.precio-grande {
+    font-size: 2rem;
+    color: #e63946;
+    font-weight: bold;
+    margin-bottom: 20px;
 }

@@ -10,16 +10,18 @@
 <body>
 
     <header>
-        <div class="logo">URBAN<span style="color:#e63946">STYLE</span></div>
-        <nav>
-            <ul class="menu">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li> <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="blog.html">Blog</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="logo">URBAN<span style="color:#e63946">STYLE</span></div>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html" class="activo">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html" class="btn-contacto">Contacto</a></li>
+        </ul>
+        <div class="hamburguesa">☰</div>
+    </nav>
+</header>
 
     <section class="hero">
         <h1>Tu estilo, tu regla</h1>
@@ -27,24 +29,26 @@
         <a href="productos.html" class="btn">Ver Tienda</a>
     </section>
 
-    <main class="contenedor seccion">
-        <h2>Categorías</h2>
-        <br>
-        <div class="galeria">
-            <div class="tarjeta">
-                <h3>Mujer</h3>
-                <p>Moda femenina</p>
-            </div>
-            <div class="tarjeta">
-                <h3>Hombre</h3>
-                <p>Estilo urbano</p>
-            </div>
-            <div class="tarjeta">
-                <h3>Accesorios</h3>
-                <p>Complementos</p>
-            </div>
-        </div>
-    </main>
+   <main class="contenedor seccion">
+    <h2>Categorías</h2>
+    <br>
+    <div class="galeria">
+        <a href="productos.html?cat=women's clothing" class="tarjeta" style="color: inherit; text-decoration: none;">
+            <h3>Mujer</h3>
+            <p>Moda femenina</p>
+        </a>
+
+        <a href="productos.html?cat=men's clothing" class="tarjeta" style="color: inherit; text-decoration: none;">
+            <h3>Hombre</h3>
+            <p>Estilo urbano</p>
+        </a>
+
+        <a href="productos.html?cat=jewelery" class="tarjeta" style="color: inherit; text-decoration: none;">
+            <h3>Accesorios</h3>
+            <p>Complementos</p>
+        </a>
+    </div>
+</main>
 
     <footer>
         <p>&copy; 2024 UrbanStyle - Sitio Web Escolar</p>

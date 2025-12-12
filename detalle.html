@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Productos</title>
+    <title>Detalle del Producto | UrbanStyle</title>
     <link rel="stylesheet" href="estilo.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    </head>
+</head>
 <body>
 
     <header>
@@ -24,16 +24,10 @@
     </header>
 
     <main class="contenedor seccion">
-        <h1>Nuestros Productos</h1>
+        <a href="productos.html" style="display:inline-block; margin-bottom: 20px;">&larr; Volver al catálogo</a>
         
-        <div style="margin-bottom: 20px;">
-            <button class="btn" onclick="filtrar('all')">Todos</button>
-            <button class="btn" onclick="filtrar('men\'s clothing')">Hombres</button>
-            <button class="btn" onclick="filtrar('women\'s clothing')">Mujeres</button>
-        </div>
-
-        <div id="lista-productos" class="galeria">
-            <p>Cargando catálogo...</p>
+        <div id="detalle-producto" class="detalle-grid">
+            <p>Cargando información...</p>
         </div>
     </main>
 
@@ -41,7 +35,7 @@
         <p>&copy; 2024 UrbanStyle - Sitio Web Escolar</p>
     </footer>
 
-    <script src="js/products.js"></script>
+    <script src="js/detalle.js"></script>
 
 </body>
 </html>
