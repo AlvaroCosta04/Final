@@ -1,10 +1,16 @@
 /* --- 1. VARIABLES Y CONFIGURACIÓN --- */
 :root {
-    --primary: #e63946;       /* Color Rojo Marca */
-    --primary-dark: #c92a35;  /* Rojo más oscuro (Hover) */
-    --dark: #1a1a1a;          /* Negro suave */
+    --primary: #e63946;       /* Rojo Marca */
+    --primary-dark: #c92a35;  /* Rojo Hover */
+    --dark: #1a1a1a;          /* Negro */
     --light: #ffffff;         /* Blanco */
     --gray: #ddd;             /* Bordes */
+    
+    /* Variables nuevas para Alertas */
+    --success-bg: #d4edda;    /* Fondo Verde */
+    --success-text: #155724;  /* Texto Verde */
+    --success-border: #c3e6cb;/* Borde Verde */
+
     --font-main: 'Open Sans', sans-serif;
     --font-title: 'Montserrat', sans-serif;
 }
@@ -32,10 +38,17 @@ ul { list-style: none; }
 
 /* --- 3. HEADER --- */
 header {
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
     padding: 15px 30px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: relative; /* Clave para el menú móvil */
+    
+    /* --- CAMBIOS PARA MENU FIJO --- */
+    position: sticky;  /* La magia: se comporta normal hasta que scrolleas */
+    top: 0;            /* Le dice: "quédate pegado al borde superior" */
+    z-index: 1000;     /* Asegura que esté siempre ENCIMA de las fotos y tarjetas */
+    background-color: var(--light); /* Fondo sólido para que no se trasluzca el contenido al bajar */
 }
 .logo { font-size: 24px; font-weight: bold; font-family: var(--font-title); }
 .logo span { color: var(--primary); }
@@ -76,6 +89,28 @@ input, textarea {
     border: 1px solid var(--gray); border-radius: 5px; font-family: inherit;
 }
 input:focus, textarea:focus { border-color: var(--primary); outline: none; }
+
+.alerta {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    display: none; /* Oculto por defecto */
+}
+
+.alerta-exito {
+    background-color: var(--success-bg);    /* Usando variable */
+    color: var(--success-text);             /* Usando variable */
+    border: 1px solid var(--success-border);/* Usando variable */
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
 /* --- 7. DETALLE PRODUCTO --- */
 .detalle-grid {
