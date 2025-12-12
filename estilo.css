@@ -2,8 +2,8 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Para que el padding no deforme las cajas */
-    font-family: 'Open Sans', sans-serif; /* Tipografía legible */
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {
@@ -12,18 +12,18 @@ body {
 }
 
 a {
-    text-decoration: none; /* Quitar subrayado de enlaces */
+    text-decoration: none;
     color: inherit;
 }
 
 ul {
-    list-style: none; /* Quitar puntos de listas */
+    list-style: none;
 }
 
 /* --- 2. ESTRUCTURA (Contenedores) --- */
 .contenedor {
-    max-width: 1000px; /* Ancho máximo de la página */
-    margin: 0 auto;    /* Centrar en pantalla */
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 20px;
 }
 
@@ -32,13 +32,16 @@ ul {
     text-align: center;
 }
 
-/* --- 3. CABECERA (Header) --- */
+/* --- 3. CABECERA (Header) - ¡AQUÍ ESTABA EL CAMBIO! --- */
 header {
-    display: flex;             /* Pone el logo y el menú en línea */
-    justify-content: space-between; /* Los separa a los extremos */
-    align-items: center;       /* Los alinea verticalmente */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 15px 30px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
+    /* ESTA LÍNEA ES LA CLAVE: Hace que el menú se pegue al header y no a la página entera */
+    position: relative; 
 }
 
 .logo {
@@ -49,11 +52,11 @@ header {
 
 .menu {
     display: flex;
-    gap: 20px; /* Espacio entre enlaces */
+    gap: 20px;
 }
 
 .menu a:hover {
-    color: #e63946; /* Color rojo al pasar el mouse */
+    color: #e63946;
 }
 
 .hamburguesa {
@@ -65,13 +68,10 @@ header {
 /* --- 4. PORTADA (Hero) --- */
 .hero {
     height: 300px;
-    background-color: #1a1a1a; /* Fondo oscuro si falla la imagen */
-    /* Imagen de fondo oscurecida */
+    background-color: #1a1a1a;
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1470&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
-    
-    /* Centrar texto */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,31 +82,29 @@ header {
 .hero h1 { font-size: 3rem; margin-bottom: 10px; }
 
 /* --- 5. GRID (Para Productos y Categorías) --- */
-/* Esta clase "magica" hace las columnas automáticas */
 .galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px; /* Espacio entre tarjetas */
+    gap: 20px;
 }
 
-/* Diseño de las Tarjetas */
 .tarjeta {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 15px;
     text-align: center;
-    transition: 0.3s; /* Suaviza el efecto hover */
+    transition: 0.3s;
 }
 
 .tarjeta:hover {
-    transform: translateY(-5px); /* Se mueve un poco arriba */
+    transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .tarjeta img {
     width: 100%;
     height: 200px;
-    object-fit: contain; /* La imagen no se estira feo */
+    object-fit: contain;
 }
 
 .precio {
@@ -141,47 +139,41 @@ footer {
     margin-top: 50px;
 }
 
-/* --- 8. MÓVIL (Final del archivo) --- */
+/* --- 8. MÓVIL --- */
 @media (max-width: 600px) {
-    
-    /* Mantenemos el ajuste del título para que no se vea gigante */
     .hero h1 { font-size: 2rem; }
 
     .hamburguesa { 
-        display: block; /* Muestra el icono de las 3 rayitas */
+        display: block; 
     }
 
     .menu {
-        display: none; /* Oculto por defecto */
-        
-        /* Estilos para que se despliegue hacia abajo */
+        display: none;
         flex-direction: column;
-        position: absolute; /* Se sale del flujo normal */
-        top: 100%;          /* Se pega justo debajo del header */
+        position: absolute;
+        top: 100%; /* Ahora sí bajará justo debajo del header */
         left: 0;
         width: 100%;
         background-color: white;
         padding: 20px 0;
         border-bottom: 1px solid #ddd;
-        z-index: 100;       /* Asegura que quede encima de las fotos */
+        z-index: 100;
     }
 
-    /* Cuando JS le ponga esta clase, el menú aparecerá */
     .menu.activado {
         display: flex;
     }
 }
 
-/* --- ESTILOS DEL FORMULARIO (Agregar al final) --- */
-
+/* --- ESTILOS DEL FORMULARIO --- */
 .contenedor-form {
-    max-width: 500px; /* Que no sea muy ancho para leerse bien */
-    margin: 0 auto;   /* Centrado */
-    text-align: left; /* Las etiquetas alineadas a la izquierda */
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
 }
 
 .campo {
-    margin-bottom: 20px; /* Espacio entre preguntas */
+    margin-bottom: 20px;
 }
 
 .campo label {
@@ -190,26 +182,26 @@ footer {
     margin-bottom: 5px;
 }
 
-/* Estilo de los inputs y el area de texto */
 input, textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-family: inherit; /* Usa la misma letra que la web */
+    font-family: inherit;
 }
 
 input:focus, textarea:focus {
-    border-color: #e63946; /* Se pinta rojo al escribir [cite: 17] */
+    border-color: #e63946;
     outline: none;
 }
 
+/* --- ESTILOS DE DETALLE --- */
 .detalle-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Dos columnas en PC, una en móvil */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     align-items: center;
-    text-align: left; /* Alineamos texto a la izquierda */
+    text-align: left;
 }
 
 .detalle-imagen img {
