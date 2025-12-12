@@ -1,4 +1,3 @@
-// 1. Obtener el ID de la URL (ej: detalle.html?id=5)
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
@@ -11,11 +10,9 @@ async function cargarDetalle() {
     }
 
     try {
-        // 2. Pedir a la API solo ESTE producto
         const respuesta = await fetch(`https://fakestoreapi.com/products/${id}`);
         const producto = await respuesta.json();
 
-        // 3. Dibujar el HTML del detalle
         contenedor.innerHTML = `
             <div class="detalle-imagen">
                 <img src="${producto.image}" alt="${producto.title}">
@@ -33,5 +30,4 @@ async function cargarDetalle() {
         contenedor.innerHTML = '<p>Error al cargar el producto.</p>';
     }
 }
-
 cargarDetalle();

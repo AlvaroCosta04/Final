@@ -1,5 +1,3 @@
-// js/main.js
-
 const boton = document.querySelector('.hamburguesa');
 const menu = document.querySelector('.menu');
 

@@ -1,237 +1,106 @@
-/* --- 1. CONFIGURACIÓN BÁSICA --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+/* --- 1. VARIABLES Y CONFIGURACIÓN --- */
+:root {
+    --primary: #e63946;       /* Color Rojo Marca */
+    --primary-dark: #c92a35;  /* Rojo más oscuro (Hover) */
+    --dark: #1a1a1a;          /* Negro suave */
+    --light: #ffffff;         /* Blanco */
+    --gray: #ddd;             /* Bordes */
+    --font-main: 'Open Sans', sans-serif;
+    --font-title: 'Montserrat', sans-serif;
 }
 
-body {
-    color: #1a1a1a;
-    background-color: #ffffff;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
+body { color: var(--dark); background-color: var(--light); }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
-/* --- 2. ESTRUCTURA (Contenedores) --- */
-.contenedor {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.seccion {
-    padding: 40px 0;
-    text-align: center;
-}
-
-/* --- 3. CABECERA (Header) - ¡AQUÍ ESTABA EL CAMBIO! --- */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    
-    /* ESTA LÍNEA ES LA CLAVE: Hace que el menú se pegue al header y no a la página entera */
-    position: relative; 
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.menu {
-    display: flex;
-    gap: 20px;
-}
-
-.menu a:hover {
-    color: #e63946;
-}
-
-.hamburguesa {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-/* --- 4. PORTADA (Hero) --- */
-.hero {
-    height: 300px;
-    background-color: #1a1a1a;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1470&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.hero h1 { font-size: 3rem; margin-bottom: 10px; }
-
-/* --- 5. GRID (Para Productos y Categorías) --- */
-.galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.tarjeta {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.tarjeta:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.tarjeta img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-}
-
-.precio {
-    color: #e63946;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-top: 10px;
-    display: block;
-}
-
-/* --- 6. BOTONES --- */
+/* --- 2. LAYOUT Y UTILIDADES --- */
+.contenedor { max-width: 1000px; margin: 0 auto; padding: 20px; }
+.seccion { padding: 40px 0; text-align: center; }
 .btn {
-    background-color: #e63946;
+    background-color: var(--primary);
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
     display: inline-block;
-    margin-top: 10px;
-    cursor: pointer;
     border: none;
+    cursor: pointer;
+    margin-top: 10px;
 }
+.btn:hover { background-color: var(--primary-dark); }
 
-.btn:hover { background-color: #c92a35; }
-
-/* --- 7. FOOTER --- */
-footer {
-    background-color: #111;
-    color: #888;
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
+/* --- 3. HEADER --- */
+header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative; /* Clave para el menú móvil */
 }
+.logo { font-size: 24px; font-weight: bold; font-family: var(--font-title); }
+.logo span { color: var(--primary); }
 
-/* --- 8. MÓVIL --- */
-@media (max-width: 600px) {
-    .hero h1 { font-size: 2rem; }
+.menu { display: flex; gap: 20px; }
+.menu a:hover { color: var(--primary); }
+.hamburguesa { display: none; cursor: pointer; font-size: 1.5rem; }
 
-    .hamburguesa { 
-        display: block; 
-    }
-
-    .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%; /* Ahora sí bajará justo debajo del header */
-        left: 0;
-        width: 100%;
-        background-color: white;
-        padding: 20px 0;
-        border-bottom: 1px solid #ddd;
-        z-index: 100;
-    }
-
-    .menu.activado {
-        display: flex;
-    }
+/* --- 4. HERO (Portada) --- */
+.hero {
+    height: 300px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1470&auto=format&fit=crop');
+    background-size: cover; background-position: center;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    color: white;
 }
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
 
-/* --- ESTILOS DEL FORMULARIO --- */
-.contenedor-form {
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: left;
+/* --- 5. TARJETAS Y GRID --- */
+.galeria {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
 }
+.tarjeta {
+    border: 1px solid var(--gray); border-radius: 8px; padding: 15px;
+    text-align: center; transition: 0.3s;
+}
+.tarjeta:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.tarjeta img { width: 100%; height: 200px; object-fit: contain; }
+.precio { color: var(--primary); font-weight: bold; font-size: 1.2rem; margin-top: 10px; display: block; }
 
-.campo {
-    margin-bottom: 20px;
-}
-
-.campo label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
+/* --- 6. FORMULARIOS --- */
+.contenedor-form { max-width: 500px; margin: 0 auto; text-align: left; }
+.campo { margin-bottom: 20px; }
+.campo label { display: block; font-weight: bold; margin-bottom: 5px; }
 
 input, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: inherit;
+    width: 100%; padding: 10px;
+    border: 1px solid var(--gray); border-radius: 5px; font-family: inherit;
 }
+input:focus, textarea:focus { border-color: var(--primary); outline: none; }
 
-input:focus, textarea:focus {
-    border-color: #e63946;
-    outline: none;
-}
-
-/* --- ESTILOS DE DETALLE --- */
+/* --- 7. DETALLE PRODUCTO --- */
 .detalle-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    align-items: center;
-    text-align: left;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px; align-items: center; text-align: left;
 }
+.detalle-imagen img { width: 100%; max-width: 400px; border-radius: 8px; border: 1px solid #eee; }
+.detalle-info h2 { font-size: 2rem; margin-bottom: 10px; font-family: var(--font-title); }
+.categoria { color: #888; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 20px; }
+.descripcion { margin-bottom: 20px; line-height: 1.8; }
+.precio-grande { font-size: 2rem; color: var(--primary); font-weight: bold; margin-bottom: 20px; }
 
-.detalle-imagen img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 8px;
-    border: 1px solid #eee;
-}
+/* --- 8. FOOTER --- */
+footer { background-color: #111; color: #888; text-align: center; padding: 20px; margin-top: 50px; }
 
-.detalle-info h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-}
+/* --- 9. MÓVIL --- */
+@media (max-width: 600px) {
+    .hero h1 { font-size: 2rem; }
+    .hamburguesa { display: block; }
 
-.categoria {
-    color: #888;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-}
-
-.descripcion {
-    margin-bottom: 20px;
-    line-height: 1.8;
-}
-
-.precio-grande {
-    font-size: 2rem;
-    color: #e63946;
-    font-weight: bold;
-    margin-bottom: 20px;
+    .menu {
+        display: none; flex-direction: column;
+        position: absolute; top: 100%; left: 0; width: 100%;
+        background-color: white; padding: 20px 0;
+        border-bottom: 1px solid var(--gray); z-index: 100;
+    }
+    .menu.activado { display: flex; }
 }
