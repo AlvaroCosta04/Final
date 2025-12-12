@@ -141,11 +141,35 @@ footer {
     margin-top: 50px;
 }
 
-/* --- 8. MÓVIL --- */
+/* --- 8. MÓVIL (Final del archivo) --- */
 @media (max-width: 600px) {
-    .menu { display: none; } /* Oculta los enlaces en el cel */
-    .hamburguesa { display: block; } /* Muestra el icono SOLO en el cel */
+    
+    /* Mantenemos el ajuste del título para que no se vea gigante */
     .hero h1 { font-size: 2rem; }
+
+    .hamburguesa { 
+        display: block; /* Muestra el icono de las 3 rayitas */
+    }
+
+    .menu {
+        display: none; /* Oculto por defecto */
+        
+        /* Estilos para que se despliegue hacia abajo */
+        flex-direction: column;
+        position: absolute; /* Se sale del flujo normal */
+        top: 100%;          /* Se pega justo debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 20px 0;
+        border-bottom: 1px solid #ddd;
+        z-index: 100;       /* Asegura que quede encima de las fotos */
+    }
+
+    /* Cuando JS le ponga esta clase, el menú aparecerá */
+    .menu.activado {
+        display: flex;
+    }
 }
 
 /* --- ESTILOS DEL FORMULARIO (Agregar al final) --- */
